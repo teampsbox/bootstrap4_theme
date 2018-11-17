@@ -1,17 +1,79 @@
-// Hex Colors
-// Black - #444
-// Yellow Orange - #ff9900
-// Blue - #146eb4
+$primary-color: #f8ca22 !important;
+$secondary-color: #146eb4 !important;
+
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-// Showcase
-// #showcase {
-//   margin: 0;
-//   padding: 0;
-//   background: url(../img/background.jpg) no-repeat top center fixed/cover;
-//   position: relative;
-//   min-height: 650px;
-// }
+a {
+  color: $primary-color;
+
+  &:hover {
+    color: $secondary-color;
+    background: #ccc;
+    font-weight: 800;
+    border-radius: 2.5%;
+    @include easeOut;
+  }
+}
+
+// Navbar
+#mainNav {
+  background-color: #252525;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: rgba(#fff, 0.5);
+}
+// Header
+header.masthead {
+  margin: 0;
+  padding: 0;
+  background: url(../img/background.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+
+  .intro-text {
+    padding: 0;
+    margin: 0;
+
+    .intro-heading {
+      z-index: 5;
+      padding-top: 28vh;
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+  }
+}
+
+// Sections
+section {
+  padding: 100px 0;
+
+  h2.section-heading {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  h3.section-subheading {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 75px;
+    text-transform: none;
+    font-family: "Courier New", Courier, monospace;
+  }
+}
