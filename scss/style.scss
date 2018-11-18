@@ -5,6 +5,16 @@ $secondary-color: #146eb4 !important;
   transition: all 0.5s ease-out;
 }
 
+@mixin overlay($color, $opacity) {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba($color, $opacity);
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -21,42 +31,52 @@ a {
   }
 }
 
+// Buttons
+.btn {
+  font-weight: 600;
+
+  &-xl {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+
+  &-primary {
+    background-color: #444;
+    border-color: $primary-color;
+  }
+
+  &-primary:hover {
+    color: $secondary-color;
+    background: #ccc;
+    font-weight: 800;
+    border-width: 2.8px;
+    border-color: $secondary-color;
+    // border-radius: 5%;
+    @include easeOut;
+  }
+}
+
 // Navbar
 #mainNav {
   background-color: #252525;
 }
 
-#overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: rgba(#fff, 0.5);
-}
-// Header
-header.masthead {
-  margin: 0;
-  padding: 0;
-  background: url(../img/background.jpg);
-  background-attachment: fixed;
-  background-size: cover;
+// Showcase
+#showcase {
+  background: url(../img/background.jpg) no-repeat top center fixed/cover;
+  position: relative;
+  color: #fff;
   width: 100%;
   height: 100vh;
-  position: relative;
-  text-align: center;
 
-  .intro-text {
-    padding: 0;
-    margin: 0;
-
-    .intro-heading {
-      z-index: 5;
-      padding-top: 28vh;
-      font-size: 2.8rem;
-      font-weight: 800;
-    }
+  .overlay {
+    @include overlay(#333, 0.8);
+  }
+  .intro {
+    font-size: 2.8rem;
+    padding-top: 28vh;
+    margin-bottom: 5rem;
+    font-weight: 800;
   }
 }
 
